@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: heatmaps-multi
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    disk:
+      name: heatmaps-data
+      mountPath: /opt/render/project/src/server
+      sizeGB: 1
+    envVars:
+      - key: PORT
+        value: "3001"
